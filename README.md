@@ -1,48 +1,77 @@
-# ai-mood-board
+#🌌 AI Mood Explorer
 
-This template should help get you started developing with Vue 3 in Vite.
+AI Mood Explorer is a private, local-first web application that analyzes your thoughts and reflections to generate poetic insights. Unlike traditional AI apps, this tool uses a local Large Language Model (LLM) to ensure your data stays on your machine, while dynamically transforming the UI's visual atmosphere to match your emotional state.
 
-## Recommended IDE Setup
+## ✨ Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Local Inference: Powered by Ollama and llama3.2 for 100% private processing.
 
-## Recommended Browser Setup
+Dynamic Emotional Theming: The UI colors, glow effects, and headers automatically shift based on the AI's sentiment analysis.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Glassmorphism Design: A modern, high-end aesthetic with frosted glass effects and smooth floating animations.
 
-## Type Support for `.vue` Imports in TS
+Vibration Pulse: A rhythmic glowing aura that reacts to the "vibe" of your input.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Structured JSON Output: Uses a strictly defined prompt to ensure consistent UI updates from the local model.
 
-## Customize configuration
+## 🚀 Getting Started
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 1. Prerequisites
 
-## Project Setup
+Node.js: Version 16.x or higher.
 
-```sh
+Ollama: Download and install from ollama.com.
+
+### 2. Pull the Model
+
+Open your terminal and pull the optimized llama3.2 model:
+
+ollama pull llama3.2
+
+
+### 3. Critical: Enable Browser Access (CORS)
+
+By default, Ollama blocks requests from web browsers for security. You must set the OLLAMA_ORIGINS environment variable to allow the frontend to communicate with the local API.
+
+macOS / Linux:
+
+OLLAMA_ORIGINS="*" ollama serve
+
+
+Windows (PowerShell):
+
+$env:OLLAMA_ORIGINS="*"; ollama serve
+
+
+## 📦 Installation
+
+Clone the project or copy the files provided in the vue_project_structure.md.
+
+Navigate to the project directory.
+
+Install dependencies:
+
 npm install
-```
 
-### Compile and Hot-Reload for Development
 
-```sh
+Run the Development Server:
+
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
 
-```sh
-npm run build
-```
+## 🛠️ Configuration
 
-### Lint with [ESLint](https://eslint.org/)
+You can customize the model or the endpoint in src/App.vue:
 
-```sh
-npm run lint
-```
+// Ollama Configuration
+const ollamaUrl = "http://localhost:11434/api/generate";
+const modelName = "llama3.2"; // Change to "mistral", "phi3", etc., if pulled locally
+
+
+## 📝 Usage
+
+Type a thought, a single keyword, or a complex mood into the text area.
+
+Press Generate Insight (or Ctrl + Enter).
+
+Watch as the "Vibration Pulse" changes color and the AI types out a poetic reflection on your state of mind.
